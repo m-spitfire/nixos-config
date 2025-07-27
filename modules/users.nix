@@ -12,6 +12,7 @@
       btop
       dnsutils
       nil
+      unixtools.netstat
     ];
   };
   environment.systemPackages = with pkgs; [

@@ -5,10 +5,14 @@
   # open firewall ports
   networking.firewall =
     let
-      port = config.muradb.ssh.port;
+      sshPort = config.muradb.ssh.port;
     in
     {
-      allowedTCPPorts = [ port ];
-      allowedUDPPorts = [ port ];
+      allowedTCPPorts = [
+        sshPort
+        80
+        443
+      ];
+      allowedUDPPorts = [ sshPort ];
     };
 }
