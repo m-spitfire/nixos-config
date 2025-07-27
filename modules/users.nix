@@ -25,5 +25,6 @@
     unzip
     wget
     ripgrep
+    bottom
   ];
 }
