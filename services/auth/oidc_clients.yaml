@@ -1,14 +1,27 @@
 identity_providers:
   oidc:
     clients:
-      - client_id: 'actual-budget'
-        client_name: 'Actual Budget'
-        client_secret: '$argon2id$v=19$m=65536,t=3,p=4$ydUo+72ScJWV//sVnhT5hA$dIfh10QQTAZshD8ksCSmgYYzzD6tSsGoxLrh9FJdR6I'
+      - client_id: "actual-budget"
+        client_name: "Actual Budget"
+        client_secret: "$argon2id$v=19$m=65536,t=3,p=4$ydUo+72ScJWV//sVnhT5hA$dIfh10QQTAZshD8ksCSmgYYzzD6tSsGoxLrh9FJdR6I"
         public: false
-        authorization_policy: 'one_factor'
+        authorization_policy: "one_factor"
         redirect_uris:
-          - 'https://actual.000376.xyz/openid/callback'
+          - "https://actual.000376.xyz/openid/callback"
         scopes:
-          - 'openid'
-          - 'profile'
-          - 'email'
+          - "openid"
+          - "profile"
+          - "email"
+
+      - client_id: "memos"
+        client_name: "Memos"
+        client_secret: "$argon2id$v=19$m=65536,t=3,p=4$egIeEI3vid+noY5gv3lMww$YlYKB7hqYTL8Q+79O7yIm7VtHF8ReSlGhgtnhq3OZIU"
+        public: false
+        authorization_policy: "one_factor"
+        redirect_uris:
+          - "https://memos.000376.xyz/auth/callback"
+        scopes:
+          - "openid"
+          - "profile"
+          - "email"
+        token_endpoint_auth_method: 'client_secret_post'

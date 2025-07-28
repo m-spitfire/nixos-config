@@ -14,4 +14,6 @@ in
   "deep_lldap_admin_password.age".publicKeys = [ deep ];
 
   "deep_actual_client_secret.age".publicKeys = [ deep ];
+
+  "deep_memos_client_secret.age".publicKeys = [ deep ];
 }

@@ -111,29 +111,15 @@ in
       '';
     };
 
-    # services.fcgiwrap.instances.cgit.socket =
-    #   let
-    #     inherit (config.services) caddy;
-    #   in
-    #   {
-    #     user = "git";
-    #     group = "git";
-    #   };
-
     services.caddy.virtualHosts."git.000376.xyz".extraConfig = ''
-      handle_path /cgit-css/* {
-        root * ${config.services.cgit.muradb.package}/cgit/
-        file_server
-      }
-      handle {
-        cgi * ${config.services.cgit.muradb.package}/cgit/cgit.cgi
-      }
+      	  import auth
+            handle_path /cgit-css/* {
+              root * ${config.services.cgit.muradb.package}/cgit/
+              file_server
+            }
+            handle {
+              cgi * ${config.services.cgit.muradb.package}/cgit/cgit.cgi
+            }
     '';
-
-    # reverse_proxy unix/${config.services.fcgiwrap.instances."cgit".socket.address} {
-    #   transport fastcgi {
-    #     env SCRIPT_FILENAME ${config.services.cgit.muradb.package}/cgit/cgit.cgi
-    #   }
-    # }
   };
 }

@@ -8,5 +8,6 @@
     ./postgresql.nix
     ./redis.nix
     ./actual.nix
+    ./memos.nix
   ];
 }

@@ -68,7 +68,7 @@ in
         owner = "lldap";
       };
     };
-    services.caddy.virtualHosts."lldap.000376.xyz".extraConfig = ''
-      reverse_proxy 127.0.0.1:17170
-    '';
+  services.caddy.virtualHosts."lldap.000376.xyz".extraConfig = ''
+    reverse_proxy 127.0.0.1:17170
+  '';
 }

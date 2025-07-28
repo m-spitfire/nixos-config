@@ -21,13 +21,16 @@
     agenix
     git
     vim
+    neovim
     tldr
     zip
     unzip
     wget
     ripgrep
     bottom
+	htop
     jq
     openldap
+    tmux
   ];
 }
