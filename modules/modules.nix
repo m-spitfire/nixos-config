@@ -6,5 +6,6 @@
     ./networking.nix
     ./nix.nix
     ./users.nix
+    ./secrets.nix
   ];
 }

@@ -12,6 +12,7 @@
       btop
       dnsutils
       nil
+      just
       unixtools.netstat
     ];
   };
@@ -26,5 +27,7 @@
     wget
     ripgrep
     bottom
+    jq
+    openldap
   ];
 }

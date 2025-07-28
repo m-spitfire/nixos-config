@@ -4,5 +4,9 @@
     ./ssh.nix
     ./caddy.nix
     ./vaultwarden.nix
+    ./auth
+    ./postgresql.nix
+    ./redis.nix
+    ./actual.nix
   ];
 }
