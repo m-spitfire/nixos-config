@@ -2,6 +2,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     snowfall-lib = {
       url = "github:snowfallorg/lib";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,6 +37,10 @@
     lib.mkFlake {
       inherit inputs;
       src = ./.;
+
+      overlays = with inputs; [
+        neovim-nightly-overlay.overlays.default
+      ];
 
       channels-config = {
         allowUnfree = true;

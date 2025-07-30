@@ -28,7 +28,7 @@
       group = "actual";
       isSystemUser = true;
     };
-    groups.actual = { };
+    groups.actual = {};
   };
   services.caddy.virtualHosts."actual.000376.xyz".extraConfig = ''
     encode gzip zstd

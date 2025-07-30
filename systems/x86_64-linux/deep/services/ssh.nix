@@ -17,15 +17,14 @@ in {
   # actual OpenSSH daemon
   services.openssh = {
     enable = true;
-    ports = [ 23459 ];
+    ports = [23459];
     openFirewall = true;
 
     # allow root login for remote deploy aka. rebuild-switch
-    settings.AllowUsers =
-      [
-        "muradb"
-        "root"
-      ];
+    settings.AllowUsers = [
+      "muradb"
+      "root"
+    ];
     settings.PermitRootLogin = "yes";
 
     # require public key authentication for better security

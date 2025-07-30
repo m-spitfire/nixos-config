@@ -18,10 +18,12 @@ in {
     users.users.muradb = {
       isNormalUser = true;
       description = "Murad";
+      hashedPasswordFile = config.sops.secrets."common/users/muradb/password".path;
       extraGroups = [
         "wheel"
         "networkmanager"
       ];
     };
+    sops.secrets."common/users/muradb/password".neededForUsers = true;
   };
 }
