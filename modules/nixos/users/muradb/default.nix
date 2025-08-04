@@ -24,6 +24,13 @@ in {
         "networkmanager"
       ];
     };
+
+    home-manager.users.muradb.home = {
+      username = "muradb";
+      homeDirectory = "/home/muradb";
+      stateVersion = config.system.stateVersion;
+    };
+
     sops.secrets."common/users/muradb/password".neededForUsers = true;
   };
 }

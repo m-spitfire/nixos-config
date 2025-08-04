@@ -23,7 +23,7 @@ in {
           publicurl = url;
         };
         # https://github.com/go-vikunja/vikunja/issues/916
-        cors.origins = [ url ];
+        cors.origins = [url];
         auth = {
           local.enabled = false;
           openid = {

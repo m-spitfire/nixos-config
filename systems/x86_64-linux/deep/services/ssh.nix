@@ -34,7 +34,4 @@ in {
 
   users.users."muradb".openssh.authorizedKeys.keys = sshAuthKeys;
   users.users."root".openssh.authorizedKeys.keys = sshAuthKeys;
-
-  # run 'screenfetch' command on SSH logins
-  programs.bash.interactiveShellInit = "screenfetch";
 }

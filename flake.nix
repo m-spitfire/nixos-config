@@ -3,6 +3,18 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     snowfall-lib = {
       url = "github:snowfallorg/lib";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,5 +57,8 @@
       channels-config = {
         allowUnfree = true;
       };
+      homes.modules = [
+        inputs.stylix.homeModules.stylix
+      ];
     };
 }

@@ -16,27 +16,11 @@
 
   time.timeZone = "Europe/Berlin";
 
+  programs.neovim.enable = true;
+  programs.dconf.enable = true;
   environment.systemPackages = with pkgs; [
-    curl
-    btop
-    dnsutils
-    nil
-    just
-    unixtools.netstat
-    screenfetch
-    git
-    vim
-    neovim
-    tldr
-    zip
-    unzip
-    wget
-    ripgrep
-    bottom
-    htop
-    jq
     openldap
-    tmux
+    git
   ];
 
   networking.useDHCP = lib.mkDefault true;

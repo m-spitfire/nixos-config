@@ -1,0 +1,16 @@
+s/"#1e1e2e"/colors.base00/g
+s/"#181825"/colors.base01/g
+s/"#313244"/colors.base02/g
+s/"#45475a"/colors.base03/g
+s/"#585b70"/colors.base04/g
+s/"#cdd6f4"/colors.base05/g
+s/"#f5e0dc"/colors.base06/g
+s/"#b4befe"/colors.base07/g
+s/"#f38ba8"/colors.base08/g
+s/"#fab387"/colors.base09/g
+s/"#f9e2af"/colors.base0A/g
+s/"#a6e3a1"/colors.base0B/g
+s/"#94e2d5"/colors.base0C/g
+s/"#89b4fa"/colors.base0D/g
+s/"#cba6f7"/colors.base0E/g
+s/"#f2cdcd"/colors.base0F/g
