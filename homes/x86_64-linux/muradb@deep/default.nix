@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+_: {
   custom = {
     suites = {
       common.enable = true;

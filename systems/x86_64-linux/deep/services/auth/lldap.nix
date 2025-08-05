@@ -1,12 +1,7 @@
-{
-  config,
-  lib,
-  ...
-}: let
+{config, ...}: let
   domain = "000376";
   tld = "xyz";
   host = "${domain}.${tld}";
-  authelia = "authelia-deep";
   cfg = config.services.lldap;
 in {
   services = {
@@ -35,9 +30,6 @@ in {
     # LLDAP requires PostgreSQL to be running
     after = dependencies;
     requires = dependencies;
-    # DynamicUser screws up sops-nix ownership because
-    # the user doesn't exist outside of runtime.
-    # serviceConfig.DynamicUser = lib.mkForce false;
   };
 
   # Setup a user and group for LLDAP

@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: let
+_: let
   sshAuthKeys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOIHAvKIcVIdmEoANP4iTnzac7sAQVvVIDFSPuxfpMws"
   ];
@@ -25,11 +21,11 @@ in {
       "muradb"
       "root"
     ];
-    settings.PermitRootLogin = "yes";
-
-    # require public key authentication for better security
-    settings.PasswordAuthentication = false;
-    settings.KbdInteractiveAuthentication = false;
+    settings = {
+      PermitRootLogin = "yes";
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    };
   };
 
   users.users."muradb".openssh.authorizedKeys.keys = sshAuthKeys;

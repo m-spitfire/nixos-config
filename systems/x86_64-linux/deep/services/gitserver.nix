@@ -54,61 +54,63 @@ in {
   };
   users.groups.git.gid = 974;
 
-  services.openssh = {
-    enable = true;
-    settings.AllowUsers = ["git"];
-    extraConfig = ''
-      Match user git
-        AllowTcpForwarding no
-        AllowAgentForwarding no
-        PasswordAuthentication no
-        PermitTTY no
-        X11Forwarding no
-    '';
-  };
   environment.etc."cgitrc".source = mkCgitrc;
-  services.cgit.muradb = {
-    enable = false;
-    scanPath = gitServerPath;
-    settings = {
-      root-title = "Git Repos";
-      root-desc = "Hosted with Cgit on NixOS";
-      favicon = "/cgit-css/favicon.ico";
+  services = {
+    openssh = {
+      enable = true;
+      settings.AllowUsers = ["git"];
+      extraConfig = ''
+        Match user git
+          AllowTcpForwarding no
+          AllowAgentForwarding no
+          PasswordAuthentication no
+          PermitTTY no
+          X11Forwarding no
+      '';
     };
-    extraConfig = ''
-      virtual-root=/
-      css=/cgit-css/cgit.css
-      logo=/cgit-css/cgit.png
+    cgit.muradb = {
+      enable = false;
+      scanPath = gitServerPath;
+      settings = {
+        root-title = "Git Repos";
+        root-desc = "Hosted with Cgit on NixOS";
+        favicon = "/cgit-css/favicon.ico";
+      };
+      extraConfig = ''
+        virtual-root=/
+        css=/cgit-css/cgit.css
+        logo=/cgit-css/cgit.png
 
-      mimetype.html=text/html
-      mimetype.js=text/javascript
-      mimetype.css=text/css
-      mimetype.pl=text/x-script.perl
-      mimetype.pm=text/x-script.perl-module
-      mimetype.py=text/x-script.python
-      mimetype.png=image/png
-      mimetype.gif=image/gif
-      mimetype.jpg=image/jpeg
-      mimetype.jpeg=image/jpeg
+        mimetype.html=text/html
+        mimetype.js=text/javascript
+        mimetype.css=text/css
+        mimetype.pl=text/x-script.perl
+        mimetype.pm=text/x-script.perl-module
+        mimetype.py=text/x-script.python
+        mimetype.png=image/png
+        mimetype.gif=image/gif
+        mimetype.jpg=image/jpeg
+        mimetype.jpeg=image/jpeg
 
-      about-filter=${config.services.cgit.muradb.package}/lib/cgit/filters/about-formatting.sh
-      source-filter=${config.services.cgit.muradb.package}/lib/cgit/filters/syntax-highlighting.py
+        about-filter=${config.services.cgit.muradb.package}/lib/cgit/filters/about-formatting.sh
+        source-filter=${config.services.cgit.muradb.package}/lib/cgit/filters/syntax-highlighting.py
 
-      readme=:README.md
-      readme=:README.txt
-      readme=:README.html
-      readme=:README
+        readme=:README.md
+        readme=:README.txt
+        readme=:README.html
+        readme=:README
+      '';
+    };
+
+    caddy.virtualHosts."git.000376.xyz".extraConfig = ''
+      import auth
+          handle_path /cgit-css/* {
+            root * ${config.services.cgit.muradb.package}/cgit/
+            file_server
+          }
+          handle {
+            cgi * ${config.services.cgit.muradb.package}/cgit/cgit.cgi
+          }
     '';
   };
-
-  services.caddy.virtualHosts."git.000376.xyz".extraConfig = ''
-    import auth
-        handle_path /cgit-css/* {
-          root * ${config.services.cgit.muradb.package}/cgit/
-          file_server
-        }
-        handle {
-          cgi * ${config.services.cgit.muradb.package}/cgit/cgit.cgi
-        }
-  '';
 }

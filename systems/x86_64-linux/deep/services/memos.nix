@@ -1,9 +1,4 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
-}: let
+{config, ...}: let
   cfg = config.custom.services.memos;
 in {
   custom.services.memos = {

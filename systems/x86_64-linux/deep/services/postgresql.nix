@@ -1,4 +1,4 @@
-{lib, ...}: {
+_: {
   services.postgresql = {
     enable = true;
     ensureDatabases = [

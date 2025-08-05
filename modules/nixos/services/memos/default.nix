@@ -74,7 +74,7 @@ in {
     };
     users.users.${defaultUser} = lib.mkIf (cfg.user == defaultUser) {
       isSystemUser = true;
-      group = cfg.group;
+      inherit (cfg) group;
       description = "Memos daemon user";
     };
     users.groups.${defaultGroup} = lib.mkIf (cfg.group == defaultGroup) {};

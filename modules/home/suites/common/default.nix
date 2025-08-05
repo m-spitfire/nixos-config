@@ -9,7 +9,6 @@
     (lib)
     mkEnableOption
     mkIf
-    getExe
     ;
 
   cfg = config.custom.suites.common;
@@ -88,10 +87,12 @@ in {
       };
     };
 
-    stylix.enable = true;
-    stylix.autoEnable = false;
-    stylix.base16Scheme = let
-      theme = "catppuccin-mocha";
-    in "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
+    stylix = {
+      enable = true;
+      autoEnable = false;
+      base16Scheme = let
+        theme = "catppuccin-mocha";
+      in "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
+    };
   };
 }

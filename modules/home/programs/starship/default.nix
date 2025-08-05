@@ -1,9 +1,10 @@
-{ config, lib, ... }:
-
-let
-  cfg = config.custom.programs.starship;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.custom.programs.starship;
+in {
   options.custom.programs.starship.enable = lib.mkEnableOption "Enable Starship prompt";
 
   config = lib.mkIf cfg.enable {
