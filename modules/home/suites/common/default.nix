@@ -32,6 +32,7 @@ in {
         gpg.enable = true;
         neovim.enable = true;
         starship.enable = true;
+        tmux.enable = true;
         # tealdeer.enable = true;
       };
       security = {
@@ -78,7 +79,6 @@ in {
         unixtools.netstat
         wget
         curl
-        tmux
       ];
       # Handy aliases
       shellAliases = {
