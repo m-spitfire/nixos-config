@@ -25,14 +25,3 @@ identity_providers:
                   - "profile"
                   - "email"
               token_endpoint_auth_method: "client_secret_post"
-
-            - client_id: "vikunja"
-              client_name: "Vikunja"
-              client_secret: "$pbkdf2-sha512$310000$Lt/Rzj9wHwIBN5EQ2oDJLQ$bPteuvu6/bPN6a9nKJElrzOI0P1m.EpcVLCj780MuKil1p3k1qLkLdIv4541s5sJ.hoj7pD.d1e8SbBdB.zv6g"
-              authorization_policy: "one_factor"
-              redirect_uris:
-                  - "https://tasks.000376.xyz/auth/openid/authelia"
-              scopes:
-                  - openid
-                  - email
-                  - profile

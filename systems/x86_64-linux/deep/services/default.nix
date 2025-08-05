@@ -9,6 +9,5 @@
     ./redis.nix
     ./actual.nix
     ./memos.nix
-    ./vikunja.nix
   ];
 }

@@ -31,7 +31,7 @@ in {
         git.enable = true;
         gpg.enable = true;
         neovim.enable = true;
-        # starship.enable = true;
+        starship.enable = true;
         # tealdeer.enable = true;
       };
       security = {
@@ -89,6 +89,7 @@ in {
     };
 
     stylix.enable = true;
+    stylix.autoEnable = false;
     stylix.base16Scheme = let
       theme = "catppuccin-mocha";
     in "${pkgs.base16-schemes}/share/themes/${theme}.yaml";

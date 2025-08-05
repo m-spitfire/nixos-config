@@ -3,7 +3,7 @@
     enable = true;
     package = pkgs.caddy.withPlugins {
       plugins = ["github.com/aksdb/caddy-cgi/v2@v2.2.6"];
-      hash = "sha256-pkq0PIdd4+uSyjXf24rDR6hfVVEg4YMBF6cS38W1vsA=";
+      hash = "sha256-Py8XQQOe3wCFxrNW2FdJ4U7So9sHtRHGFZtQiNcmdYA=";
     };
     globalConfig = ''
       # Make the main log more human readable
