@@ -10,5 +10,6 @@
     ./actual.nix
     ./memos.nix
     ./glance.nix
+    ./media
   ];
 }

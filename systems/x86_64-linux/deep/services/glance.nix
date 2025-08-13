@@ -28,9 +28,8 @@
       };
       pages = [
         {
-          name = "Startpage";
+          name = "Box";
           width = "slim";
-          hide-desktop-navigation = true;
           center-vertically = true;
           columns = [
             {
@@ -65,6 +64,11 @@
                       title = "Actual";
                       url = "https://actual.000376.xyz";
                       icon = "di:actual-budget";
+                    }
+                    {
+                      title = "Navidrome";
+                      url = "https://music.000376.xyz";
+                      icon = "di:navidrome";
                     }
                   ];
                 }
@@ -132,6 +136,54 @@
             }
           ];
         }
+        {
+          name = "Feeds";
+          desktop-navigation-width = "slim";
+          columns = [
+            {
+              size = "full";
+              widgets = [
+                {
+                  type = "split-column";
+                  max-columns = 3;
+                  widgets = let
+                    redditAuth = {
+                      name = {
+                        _secret = config.sops.secrets."deep/glance/reddit/name".path;
+                      };
+                      id = {
+                        _secret = config.sops.secrets."deep/glance/reddit/id".path;
+                      };
+                      secret = {
+                        _secret = config.sops.secrets."deep/glance/reddit/secret".path;
+                      };
+                    };
+                  in [
+                    # TODO: write function like subredditConf "selfhosted"
+                    {
+                      type = "reddit";
+                      subreddit = "selfhosted";
+                      collapse-after = 15;
+                      app-auth = redditAuth;
+                    }
+                    {
+                      type = "reddit";
+                      subreddit = "linux";
+                      collapse-after = 15;
+                      app-auth = redditAuth;
+                    }
+                    {
+                      type = "reddit";
+                      subreddit = "homelab";
+                      collapse-after = 15;
+                      app-auth = redditAuth;
+                    }
+                  ];
+                }
+              ];
+            }
+          ];
+        }
       ];
     };
   };
@@ -153,5 +205,8 @@
   sops.secrets = {
     "deep/glance/secret_key".owner = "glance";
     "deep/glance/password".owner = "glance";
+    "deep/glance/reddit/name".owner = "glance";
+    "deep/glance/reddit/id".owner = "glance";
+    "deep/glance/reddit/secret".owner = "glance";
   };
 }

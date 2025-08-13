@@ -21,6 +21,7 @@ in {
       extraGroups = [
         "wheel"
         "networkmanager"
+        "media"
       ];
     };
 
