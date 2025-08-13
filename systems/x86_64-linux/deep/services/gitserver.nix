@@ -103,14 +103,13 @@ in {
     };
 
     caddy.virtualHosts."git.000376.xyz".extraConfig = ''
-      import auth
-          handle_path /cgit-css/* {
-            root * ${config.services.cgit.muradb.package}/cgit/
-            file_server
-          }
-          handle {
-            cgi * ${config.services.cgit.muradb.package}/cgit/cgit.cgi
-          }
+      handle_path /cgit-css/* {
+        root * ${config.services.cgit.muradb.package}/cgit/
+        file_server
+      }
+      handle {
+        cgi * ${config.services.cgit.muradb.package}/cgit/cgit.cgi
+      }
     '';
   };
 }

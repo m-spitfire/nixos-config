@@ -9,5 +9,6 @@
     ./redis.nix
     ./actual.nix
     ./memos.nix
+    ./glance.nix
   ];
 }
