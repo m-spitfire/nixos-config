@@ -1,24 +1,56 @@
-# Build the current configuration, and make it the boot default
+machine_hostname := shell("hostname -s")
+
+alias s := switch
+alias t := test
+alias d := deploy
+
+[private]
+default:
+    @just --list
+
+todo:
+    @echo TO-DOs in:
+    @rg -g !{{ file_name(justfile()) }} TODO || echo "Everything's done!"
+
+
+[group("local")]
+up *inputs:
+    nix flake update {{inputs}}
+
+[group("local")]
 switch:
-    nh os switch .
+    @just switch-machine
 
-# Build the current configuration
+[group("local")]
 test:
-   nh os test .
+    @just test-machine
 
-# Switch to the current configuration, and show the trace
+[group("local")]
 debug:
     nh os switch . -- --show-trace
 
-# Check if the configuration works
+[group("local")]
 check:
     nix flake check
 
-# Pull from the repository remote and rebuild
-sync:
-    git pull
-    nh os switch .
-
 # Garbage collect the Nix store
+[group("local")]
 clean:
     nh clean all
+
+
+[group("deploy")]
+deploy hostname mode="switch" *extra_flags:
+    nh os {{mode}} -H "{{hostname}}" --target-host "root@{{hostname}}" -- {{extra_flags}}
+
+
+
+[group("others")]
+switch-machine hostname=machine_hostname:
+    nh os switch . --hostname "{{hostname}}"
+
+[group("others")]
+test-machine hostname=machine_hostname:
+    nh os test . --hostname "{{hostname}}"
+
+
