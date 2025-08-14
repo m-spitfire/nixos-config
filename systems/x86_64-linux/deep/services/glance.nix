@@ -168,13 +168,7 @@
                     }
                     {
                       type = "reddit";
-                      subreddit = "linux";
-                      collapse-after = 15;
-                      app-auth = redditAuth;
-                    }
-                    {
-                      type = "reddit";
-                      subreddit = "homelab";
+                      subreddit = "neovim";
                       collapse-after = 15;
                       app-auth = redditAuth;
                     }

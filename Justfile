@@ -41,8 +41,10 @@ clean:
 
 [group("deploy")]
 deploy hostname mode="switch" *extra_flags:
-    nh os {{mode}} -H "{{hostname}}" --target-host "root@{{hostname}}" -- {{extra_flags}}
+    nh os {{mode}} -H "{{hostname}}" --target-host "root@{{hostname}}" --build-host "root@{{hostname}}" . -- {{extra_flags}}
 
+mac-deploy hostname mode="switch":
+    nix run nixpkgs#nixos-rebuild -- --fast --target-host "root@{{hostname}}" --build-host root@"{{hostname}}" --flake .#deep {{mode}}
 
 
 [group("others")]
