@@ -11,6 +11,9 @@ in {
       hash = "sha256-p6vPBAn+h72T4CcDT64xLzU1kYWAEU4wxYQGKGrcHvU=";
     };
     email = "carlsonmu@gmail.com";
+    virtualHosts."olympus.000376.xyz".extraConfig = ''
+      reverse_proxy :8008
+    '';
     globalConfig = ''
       acme_dns cloudflare {env.CF_API_TOKEN}
       # Make the main log more human readable
