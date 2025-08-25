@@ -1,6 +1,7 @@
 _: {
   imports = [
     ./navidrome.nix
+    ./slskd.nix
   ];
   users = {
     # This user owns /media/data

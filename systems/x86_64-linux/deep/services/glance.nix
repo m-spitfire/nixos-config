@@ -70,6 +70,12 @@
                       url = "https://music.000376.xyz";
                       icon = "di:navidrome";
                     }
+                    {
+                      title = "Slskd";
+                      url = "https://slskd.000376.xyz";
+                      icon = "di:slskd";
+                      alt-status-codes = [ 401 ];
+                    }
                   ];
                 }
                 {
