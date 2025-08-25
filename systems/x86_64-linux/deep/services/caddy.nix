@@ -1,4 +1,8 @@
-{pkgs, config, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   cfg = config.services.caddy;
 in {
   services.caddy = {

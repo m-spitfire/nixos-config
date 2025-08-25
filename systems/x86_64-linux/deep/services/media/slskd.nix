@@ -6,10 +6,10 @@
       domain = "slskd.000376.xyz";
       settings = {
         directories = {
-          incomplete = "/media/incomplete";
-          downloads = "/media/music/slskd";
+          incomplete = "/media/slskd/incomplete";
+          downloads = "/media/slskd/downloaded";
         };
-        shares.directories = [ "/media/music/inhale_do_not_breathe" "/media/music/ashes_of_wake" ];
+        shares.directories = ["/media/music/Archspire/"];
         web = {
           authentication = {
             disabled = true;

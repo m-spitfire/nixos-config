@@ -1,4 +1,4 @@
-_: {
+{pkgs, ...}: {
   imports = [
     ./navidrome.nix
     ./slskd.nix
@@ -11,4 +11,7 @@ _: {
     };
     groups.media = {};
   };
+  environment.systemPackages = with pkgs; [
+    beets
+  ];
 }
