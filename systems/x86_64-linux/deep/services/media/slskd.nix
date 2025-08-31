@@ -3,7 +3,7 @@
     slskd = {
       enable = true;
       group = "media";
-      domain = "slskd.000376.xyz";
+      domain = null; # I use caddy
       settings = {
         directories = {
           incomplete = "/media/slskd/incomplete";
