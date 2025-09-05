@@ -4,6 +4,7 @@ _: {
     ensureDatabases = [
       "authelia-deep"
       "lldap"
+      "wikijs"
     ];
     ensureUsers = [
       {
@@ -16,6 +17,10 @@ _: {
       }
       {
         name = "lldap";
+        ensureDBOwnership = true;
+      }
+      {
+        name = "wikijs";
         ensureDBOwnership = true;
       }
     ];

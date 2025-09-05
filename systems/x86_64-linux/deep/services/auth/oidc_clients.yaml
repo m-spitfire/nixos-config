@@ -25,3 +25,22 @@ identity_providers:
                   - "profile"
                   - "email"
               token_endpoint_auth_method: "client_secret_post"
+
+            - client_id: "wikijs"
+              client_name: "Wiki"
+              client_secret: "$pbkdf2-sha512$310000$sVKuC6z6GR.LEEja7z7HrQ$juVubhlfOLIXhL5Z1y5pSnZzlEfx4lFpv83X.fcCAZ3JBwki/q/Wsr8EBXSTLb22p7YKuiYEa0ncSlQLNSxscg"
+              public: false
+              authorization_policy: "one_factor"
+              redirect_uris:
+                -  {{ secret "/run/secrets/deep/wikijs/redirect_uri" | mindent 10 "|" | msquote }}
+              scopes:
+                - "openid"
+                - "profile"
+                - "email"
+              response_types:
+                - "code"
+              grant_types:
+                - "authorization_code"
+              access_token_signed_response_alg: "none"
+              userinfo_signed_response_alg: "none"
+              token_endpoint_auth_method: "client_secret_post"

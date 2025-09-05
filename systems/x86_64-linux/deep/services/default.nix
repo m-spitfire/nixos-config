@@ -10,6 +10,7 @@
     ./actual.nix
     ./memos.nix
     ./glance.nix
+    ./wikijs.nix
     ./media
   ];
 }
