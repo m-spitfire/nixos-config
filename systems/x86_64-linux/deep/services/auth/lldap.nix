@@ -10,6 +10,7 @@ in {
       settings = {
         ldap_base_dn = "dc=${domain},dc=${tld}";
         database_url = "postgresql://lldap@localhost/lldap?host=/run/postgresql";
+        force_ldap_user_pass_reset = "always";
       };
       environment = {
         LLDAP_JWT_SECRET_FILE = config.sops.secrets."deep/lldap/jwt_secret".path;

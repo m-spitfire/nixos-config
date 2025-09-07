@@ -4,7 +4,7 @@ _: {
       enable = true;
       group = "media";
       settings = {
-        MusicFolder = "/media/music";
+        MusicFolder = "/mnt/storagebox/music";
       };
     };
     caddy.virtualHosts."music.000376.xyz".extraConfig = ''

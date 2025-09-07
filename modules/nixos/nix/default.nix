@@ -21,7 +21,6 @@ in {
         experimental-features = [
           "flakes"
           "nix-command"
-          "repl-flake"
         ];
         allowed-users = ["@wheel"];
         substituters = [

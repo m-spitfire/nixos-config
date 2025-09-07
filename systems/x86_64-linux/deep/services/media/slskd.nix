@@ -9,7 +9,7 @@
           incomplete = "/media/slskd/incomplete";
           downloads = "/media/slskd/downloaded";
         };
-        shares.directories = ["/media/music/Archspire/"];
+        shares.directories = ["/mnt/storagebox/music/Archspire/"];
         web = {
           authentication = {
             disabled = true;

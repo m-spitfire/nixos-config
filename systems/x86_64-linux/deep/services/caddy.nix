@@ -12,7 +12,7 @@ in {
         "github.com/aksdb/caddy-cgi/v2@v2.2.6"
         "github.com/caddy-dns/cloudflare@v0.2.1"
       ];
-      hash = "sha256-p6vPBAn+h72T4CcDT64xLzU1kYWAEU4wxYQGKGrcHvU=";
+      hash = "sha256-YIKXUmOLGc/taCzqIXq/WnBK9kXlfu/z0/pfHnl6g00=";
     };
     email = "carlsonmu@gmail.com";
     virtualHosts."olympus.000376.xyz".extraConfig = ''

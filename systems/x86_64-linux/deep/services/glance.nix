@@ -72,6 +72,11 @@
                       icon = "di:slskd";
                       alt-status-codes = [401];
                     }
+                    {
+                      title = "Wiki";
+                      url = "https://wiki.000376.xyz";
+                      icon = "di:wikijs";
+                    }
                   ];
                 }
                 {
@@ -130,6 +135,11 @@
                   type = "server-stats";
                   servers = [
                     {
+                      "hide-mountpoints-by-default" = true;
+                      mountpoints = {
+                        "/".hide = false;
+                        "/mnt/storagebox".hide = false;
+                      };
                       type = "local";
                     }
                   ];
